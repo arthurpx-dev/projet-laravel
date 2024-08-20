@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página do Usuário</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: linear-gradient(90deg, #1E90FF, #ffffff);
+            overflow: hidden;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(30, 144, 255, 0.7);
+            box-shadow: 0 10px 30px rgba(0, 0, 255, 0.2);
+            animation: pulse 1s infinite;
+        }
+
+        .circle-1 {
+            width: 150px;
+            height: 150px;
+            top: 20%;
+            left: 15%;
+            background: red;
+        }
+
+        .circle-2 {
+            width: 250px;
+            height: 250px;
+            top: 40%;
+            left: 25%;
+            background: red;
+        }
+
+        .circle-3 {
+            width: 200px;
+            height: 200px;
+            top: 60%;
+            left: 45%;
+            background: red;
+        }
+
+        .circle-4 {
+            width: 300px;
+            height: 300px;
+            top: 70%;
+            left: 75%;
+            background: red;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .toolbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #1E90FF;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .toolbar .icon {
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            margin-top: 60px;
+            /* To avoid content overlap with toolbar */
+        }
+
+        .header {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .user-info {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            display: none;
+            /* Hidden by default */
+        }
+
+        .user-info.active {
+            display: block;
+        }
+
+        .button {
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #fff;
+            background: #1E90FF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background: #4682b4;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+    <div class="circle circle-3"></div>
+    <div class="circle circle-4"></div>
+
+    <div class="toolbar">
+        <div class="icon" id="user-icon">👤</div>
+        <a href="/welcome" class="button">Voltar ao Início</a>
+    </div>
+
+    <div class="container">
+        <div class="header">Bem-vindo, Usuário!</div>
+        <div class="user-info" id="user-info">
+            <p><strong>Nome:</strong> João Silva</p>
+            <p><strong>Email:</strong> joao.silva@example.com</p>
+            <p><strong>Data de Registro:</strong> 20/08/2024</p>
+        </div>
+        <a href="/welcome" class="button">Voltar ao Início</a>
+    </div>
+
+    <script>
+        document.getElementById('user-icon').addEventListener('click', function() {
+            var userInfo = document.getElementById('user-info');
+            if (userInfo.classList.contains('active')) {
+                userInfo.classList.remove('active');
+            } else {
+                userInfo.classList.add('active');
+            }
+        });
+    </script>
+</body>
+
+</html>
